@@ -38,7 +38,7 @@ const reactNativeAppExample = firebase.initializeApp(
 export const initializeFirebase = () => {
     reactNativeAppExample.onReady().then((app)=>{
         firebase.app('AwesomeProject').auth().signInAnonymously().then((user)=>{
-            console.log("AwesomeProjectApp user ->", user);
+            //console.log("AwesomeProjectApp user ->", user);
         })
     });
 };

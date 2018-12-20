@@ -2,34 +2,38 @@ import React from 'react';
 import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {Icon} from "react-native-elements";
 
-export default class TodoListView extends React.Component {
+export default class TodoListsView extends React.Component {
 
     render() {
         return(
-            <TouchableOpacity onPress={() => this.props.navigation.navigate('TodoListDetailsView', {id: this.props.id, todos: this.props.todos})}>
-                <View style={styles.rowContainer}>
-                    <Image source={{uri: this.props.thumbnail}}
-                        style={styles.thumbnail}
-                        resizeMode="contain" />
-                    <View style={styles.rowText}>
-                            <Text style={styles.title} numberOfLines={2} ellipsizeMode ={'tail'}>
-                            {this.props.title}
-                        </Text>
-                        <Text style={styles.dates} numberOfLines={1} ellipsizeMode ={'tail'}>
-                            {this.props.fromDate}
-                        </Text>
-                        <Text style={styles.dates} numberOfLines={1} ellipsizeMode ={'tail'}>
-                            {this.props.tillDate}
-                        </Text>
-                    </View>
-                    <View style={styles.checkMark}>
-                        <CheckMarkValue isDone={this.props.checkMark}/>
-                    </View>
-                </View>
-            </TouchableOpacity>
+            TodoLists(this)
         );
     }
 }
+
+const TodoLists = (self) => (
+    <TouchableOpacity onPress={() => self.props.navigation.navigate('TodoListDetails', {id: self.props.id, todos: self.props.todos})}>
+        <View style={styles.rowContainer}>
+            <Image source={{uri: self.props.thumbnail}}
+                   style={styles.thumbnail}
+                   resizeMode="contain" />
+            <View style={styles.rowText}>
+                <Text style={styles.title} numberOfLines={2} ellipsizeMode ={'tail'}>
+                    {self.props.title}
+                </Text>
+                <Text style={styles.dates} numberOfLines={1} ellipsizeMode ={'tail'}>
+                    {self.props.fromDate}
+                </Text>
+                <Text style={styles.dates} numberOfLines={1} ellipsizeMode ={'tail'}>
+                    {self.props.tillDate}
+                </Text>
+            </View>
+            <View style={styles.checkMark}>
+                <CheckMarkValue isDone={self.props.checkMark}/>
+            </View>
+        </View>
+    </TouchableOpacity>
+);
 
 function CheckMarkValue(props) {
     const isDone = props.checkMark;

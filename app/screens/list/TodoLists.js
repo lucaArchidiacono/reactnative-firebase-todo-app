@@ -1,6 +1,6 @@
 import React from 'react';
 import {FlatList, StatusBar, StyleSheet, View} from 'react-native';
-import TodoListView from './TodoListView';
+import TodoListsView from './TodoListsView';
 import * as firebase from "react-native-firebase";
 
 export default class TodoLists extends React.Component {
@@ -22,7 +22,7 @@ export default class TodoLists extends React.Component {
     }
 
     _renderItem = ({item}) => (
-        <TodoListView
+        <TodoListsView
             id={item.id}
             title={item.title}
             fromDate={item.fromDate}
@@ -38,19 +38,24 @@ export default class TodoLists extends React.Component {
 
     render() {
         return (
-            <View style={styles.container}>
-                <StatusBar
-                    barStyle="light-content"
-                />
-                <FlatList
-                    data={this.state.todoLists}
-                    keyExtractor={this._keyExtractor}
-                    renderItem={this._renderItem}
-                />
-            </View>
+            ViewContainer(this)
         );
     }
 }
+
+
+const ViewContainer = (self) => (
+    <View style={styles.container}>
+        <StatusBar
+            barStyle="light-content"
+        />
+        <FlatList
+            data={self.state.todoLists}
+            keyExtractor={self._keyExtractor}
+            renderItem={self._renderItem}
+        />
+    </View>
+);
 
 const styles = StyleSheet.create({
     container: {

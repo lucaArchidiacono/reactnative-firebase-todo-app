@@ -4,14 +4,14 @@ import {createAppContainer, createBottomTabNavigator, createStackNavigator} from
 import TodoLists from "./screens/list/TodoLists"
 import Settings from "./screens/Settings";
 import CreateList from "./screens/create/CreateList";
-import TodoListDetailsView from "./screens/list/TodoListDetailsView";
+import TodoListDetails from "./screens/list/TodoListDetails";
 
 const TodoListStack = createStackNavigator({
     TodoLists: {
         screen: TodoLists
     },
-    TodoListDetailsView:{
-        screen: TodoListDetailsView,
+    TodoListDetails:{
+        screen: TodoListDetails,
     }
 });
 
