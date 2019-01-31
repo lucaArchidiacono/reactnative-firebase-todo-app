@@ -1,7 +1,7 @@
 import React from 'react';
-import {FlatList, StatusBar, StyleSheet, View} from 'react-native';
+import {FlatList, StatusBar, StyleSheet, TouchableOpacity, View} from 'react-native';
 import TodoListDetailsView from "./TodoListDetailsView";
-import Icon from "react-native-vector-icons/AntDesign"
+import Icon from "react-native-vector-icons/Feather"
 
 export default class TodoListDetails extends React.Component {
     constructor(props) {
@@ -41,13 +41,17 @@ const ViewContainer = (self) => (
             renderItem={self._renderItem}
         />
     </View>
-        <AddTodoButton/>
+        <AddTodoButton self={self}/>
     </>
 );
 
-const AddTodoButton = () =>(
-    <View style={styles.createButton}>
-        <Icon name="plus" size={30} color="white"/>
+const AddTodoButton = ({self}) =>(
+    <View style={styles.circlePosition}>
+        <View style={styles.createButton}>
+            <TouchableOpacity onPress={() => self.props.navigation.navigate('TodoItem')}>
+                <Icon name="plus" size={38} color="white"/>
+            </TouchableOpacity>
+        </View>
     </View>
 );
 
@@ -67,5 +71,10 @@ const styles = StyleSheet.create({
         height:68,
         backgroundColor:'#4ea2fc',
         borderRadius:100,
+    },
+    circlePosition: {
+        flex: 1,
+        flexDirection: "row",
+        justifyContent: "center"
     }
 });

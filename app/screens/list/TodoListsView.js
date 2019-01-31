@@ -40,7 +40,7 @@ function CheckMarkValue(props) {
     if(isDone === true){
         return <Icon name="check-circle" type="FontAwesome" color="green"/>;
     }else{
-        return <Icon name="warning" type="AntDesign" color="red"/>;
+        return <Icon name="warning" type="Entypo" color="red"/>;
     }
 }
 

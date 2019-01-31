@@ -1,19 +1,39 @@
 import {Icon} from 'react-native-elements';
 import React from "react";
-import {createAppContainer, createBottomTabNavigator, createStackNavigator} from 'react-navigation';
+import {
+    createAppContainer,
+    createBottomTabNavigator,
+    createStackNavigator,
+    createSwitchNavigator
+} from 'react-navigation';
 import TodoLists from "./screens/list/TodoLists"
 import Settings from "./screens/Settings";
 import CreateList from "./screens/create/CreateList";
 import TodoListDetails from "./screens/list/TodoListDetails";
+import TodoItem from "./screens/list/item/TodoItem";
 
-const TodoListStack = createStackNavigator({
-    TodoLists: {
-        screen: TodoLists
+const TodoItemStack = createStackNavigator(
+    {
+        TodoItem: {
+            screen: TodoItem
+        }
     },
-    TodoListDetails:{
-        screen: TodoListDetails,
+    {
+        transparentCard: true,
+        mode: "modal"
     }
-});
+);
+
+const TodoListStack = createStackNavigator(
+    {
+        TodoLists: {
+            screen: TodoLists
+        },
+        TodoListDetails:{
+            screen: TodoListDetails
+        }
+    }
+);
 
 
 const CreateListStack = createStackNavigator({
@@ -48,7 +68,11 @@ const TabNavigator = createBottomTabNavigator({
     }
 });
 
+const AppNavigator = createSwitchNavigator({
+    TabNavigator: TabNavigator,
+    TodoItemStack: TodoItemStack
+});
 
 export const createRootNavigator = () =>{
-    return createAppContainer(TabNavigator);
+    return createAppContainer(AppNavigator);
 };

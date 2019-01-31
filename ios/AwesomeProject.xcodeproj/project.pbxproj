@@ -38,19 +38,15 @@
 		2D16E6881FA4F8E400B85C8A /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D16E6891FA4F8E400B85C8A /* libReact.a */; };
 		2DCD954D1E0B4F2C00145EB5 /* AwesomeProjectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* AwesomeProjectTests.m */; };
 		2DF0FFEE2056DD460020B375 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3EA31DF850E9000B6D8A /* libReact.a */; };
-		31C99C4D53D54AF0949C2755 /* FontAwesome5_Solid.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 26493643406243E5901E4011 /* FontAwesome5_Solid.ttf */; };
 		33CFB9BE28CA4A348DF8DBED /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D4127872532F4255A1D7778A /* EvilIcons.ttf */; };
 		44C39B30B4394447912E420D /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 59B147592D424BA89731C57C /* Ionicons.ttf */; };
 		4943E4717FB643BDBB439532 /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5877211221614F21B5A37F21 /* MaterialCommunityIcons.ttf */; };
-		4A9881111EE34C78B31BA58A /* FontAwesome5_Brands.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9479A8868DEE4A55A08722CF /* FontAwesome5_Brands.ttf */; };
-		4CC30845DE7F4814919346F4 /* AntDesign.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3A05DE4C5C3E47A886230B9C /* AntDesign.ttf */; };
 		5BDB7FB102D849F491042481 /* Feather.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F7E58F3806404AEDA35DAFE6 /* Feather.ttf */; };
 		7F95179B6F4E4C059EA97448 /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B8277453C1564D21868DAE03 /* Foundation.ttf */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		8363E8CD71414BA8A5931691 /* libRNGestureHandler.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F6AC55FB4CD2419C92F676B7 /* libRNGestureHandler.a */; };
 		8589F207DDF4426B9C7FCA23 /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8C74E44FDD944ED887B82E92 /* Entypo.ttf */; };
 		96B77930B03D458786A71C6B /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 046BD04AC42B449496F6533D /* Octicons.ttf */; };
-		99174D5877B24ACF93608028 /* FontAwesome5_Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FE039B7C387740C78B5ACDB5 /* FontAwesome5_Regular.ttf */; };
 		9EDE0F14F4BB4DF4860BDD75 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B09E8C1F19E442758A636111 /* Zocial.ttf */; };
 		A66A0ECCC3284BFB81CBFC07 /* libRNVectorIcons.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EAF0998398954D9CAEA465A3 /* libRNVectorIcons.a */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
@@ -351,13 +347,6 @@
 			proxyType = 2;
 			remoteGlobalIDString = 5DBEB1501B18CEA900B34395;
 			remoteInfo = RNVectorIcons;
-		};
-		C34D3C2521C79BF200C2ED0F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 4D62378EBE204335AD0144B8 /* RNVectorIcons.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = A39873CE1EA65EE60051E01A;
-			remoteInfo = "RNVectorIcons-tvOS";
 		};
 		C3C3D7DB21CBC8B9002677D9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -750,7 +739,6 @@
 			isa = PBXGroup;
 			children = (
 				C34D3C2421C79BF200C2ED0F /* libRNVectorIcons.a */,
-				C34D3C2621C79BF200C2ED0F /* libRNVectorIcons-tvOS.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1220,13 +1208,6 @@
 			remoteRef = C34D3C2321C79BF200C2ED0F /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		C34D3C2621C79BF200C2ED0F /* libRNVectorIcons-tvOS.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = "libRNVectorIcons-tvOS.a";
-			remoteRef = C34D3C2521C79BF200C2ED0F /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 		C3C3D7DC21CBC8B9002677D9 /* libRNFirebase.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -1251,14 +1232,10 @@
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
-				4CC30845DE7F4814919346F4 /* AntDesign.ttf in Resources */,
 				8589F207DDF4426B9C7FCA23 /* Entypo.ttf in Resources */,
 				33CFB9BE28CA4A348DF8DBED /* EvilIcons.ttf in Resources */,
 				5BDB7FB102D849F491042481 /* Feather.ttf in Resources */,
 				D30C242FA1024AE78DA8E6BD /* FontAwesome.ttf in Resources */,
-				4A9881111EE34C78B31BA58A /* FontAwesome5_Brands.ttf in Resources */,
-				99174D5877B24ACF93608028 /* FontAwesome5_Regular.ttf in Resources */,
-				31C99C4D53D54AF0949C2755 /* FontAwesome5_Solid.ttf in Resources */,
 				7F95179B6F4E4C059EA97448 /* Foundation.ttf in Resources */,
 				C398C47521C79C3C0073F369 /* GoogleService-Info.plist in Resources */,
 				44C39B30B4394447912E420D /* Ionicons.ttf in Resources */,
