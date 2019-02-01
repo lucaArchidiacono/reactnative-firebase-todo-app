@@ -1,15 +1,21 @@
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
-import {CheckBox, FormInput, FormLabel} from "react-native-elements";
+import {CheckBox, FormInput, FormLabel, FormValidationMessage, Icon, SocialIcon} from "react-native-elements";
 
 export default class TodoItem extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             editable: true,
-            stateOfCheckBox: false,
+            formValue: {
+                title: "",
+                description: "",
+                checkMark: false,
+            },
             missingArguments: false
         };
+        CheckForm = CheckForm.bind(this);
+        SaveForm = SaveForm.bind(this);
     }
 
     render() {
@@ -31,41 +37,48 @@ const ViewContainer = (self) => (
 const TodoForm = ({self}) => (
     <View style={styles.containerForm}>
         <FormLabel>{'Todo Title'}</FormLabel>
-        <FormInput editable={self.state.editable} placeholder="Type here for the title" onChangeText={(text) => CheckForm({text}, self.state)} shake={self.state.missingArguments}/>
+        <FormInput editable={self.state.editable} placeholder="Type here for the title" onChangeText={(text) => CheckForm(text)} shake={self.state.missingArguments}/>
+        {self.state.missingArguments ? <ErrorForm/> : null}
         <CheckBox
-            title="Already Done?"
+            title="Task already Done?"
             checkedIcon='dot-circle-o'
             uncheckedIcon='circle-o'
-            checked={self.stateOfCheckBox}/>
+            checked={self.state.formValue.checkMark}/>
+        <SaveTodo/>
     </View>
 );
 
-function CheckForm(text, selfState) {
-    if(text === "Hello"){
+const SaveTodo = () => (
+    <Icon underlayColor="#F5FCFF" containerStyle={styles.saveButtonContainer} iconStyle={styles.saveButton} name="save" type="MaterialIcons" color="white"/>
+);
+
+const ErrorForm = () => (
+    <FormValidationMessage>{'This field is required'}</FormValidationMessage>
+);
+
+function SaveForm(){
+    this.setState({
+        missingArguments: true
+    });
+}
+
+function CheckForm(text) {
+    if(text === ""){
         console.log("shake");
-        console.log(text);
-        console.log(selfState.missingArguments);
+        this.setState({
+            missingArguments: true
+        })
     }else{
         console.log("don't shake");
-        console.log(text);
-        console.log(selfState.missingArguments);
+        this.setState({
+            missingArguments: false
+        })
     }
 }
-/*
-const ErrorForm = (self) => (
-    <View>
-        <Input
-            placeholder="Todo Title"
-            errorStyle={{ color: 'red' }}
-            shake={self.missingArguments}
-            errorMessage='Please provide a title'/>
-        <Input
-            placeholder="Todo Description"
-            errorStyle={{ color: 'red' }}
-            shake={self.missingArguments}
-            errorMessage='Please provide some additional info about your todo'/>
-    </View>
-);*/
+
+function CloseForm(){
+
+}
 
 const styles = StyleSheet.create({
     container: {
@@ -73,8 +86,18 @@ const styles = StyleSheet.create({
         backgroundColor: '#F5FCFF',
     },
     containerForm: {
-        flex: 1,
+        flex: 2,
         flexDirection: "column",
         justifyContent: "center"
+    },
+    saveButton: {
+        textAlign: 'center',
+    },
+    saveButtonContainer: {
+        height: 50,
+        backgroundColor: "#68a0cf",
+        borderRadius: 100,
+        borderWidth: 1,
+        borderColor: "#F5FCFF",
     }
 });

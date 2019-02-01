@@ -19,8 +19,9 @@ const TodoItemStack = createStackNavigator(
         }
     },
     {
-        transparentCard: true,
-        mode: "modal"
+        headerMode: "none"
+        /*headerBackTitleVisible: true,
+        mode: "modal"*/
     }
 );
 
